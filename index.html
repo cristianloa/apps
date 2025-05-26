@@ -25,6 +25,13 @@
       color: #6B7280; /* Gray-500 */
       margin-top: 4px;
     }
+    .project-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 8px;
+    }
   </style>
 </head>
 <body class="bg-gray-100 min-h-screen flex flex-col items-center justify-center p-4">
@@ -42,14 +49,16 @@
         name: "Chat",
         url: "https://cristianloa.github.io/chat/",
         icon: "fa-comment-dots",
-        description: "Una aplicación de chat en tiempo real con interfaz moderna y funcionalidad de mensajería instantánea."
+        description: "Una aplicación de chat en tiempo real con interfaz moderna y funcionalidad de mensajería instantánea.",
+        image: "https://cristianloa.github.io/chat/chatme-cristianloa.jpg"
       }
       // Añade más proyectos aquí, por ejemplo:
       // {
       //   name: "Portafolio",
       //   url: "https://ejemplo.com/portafolio",
       //   icon: "fa-briefcase",
-      //   description: "Un sitio web para mostrar mis proyectos y habilidades como desarrollador."
+      //   description: "Un sitio web para mostrar mis proyectos y habilidades como desarrollador.",
+      //   image: "https://ejemplo.com/portafolio/screenshot.jpg"
       // }
     ];
 
@@ -60,11 +69,10 @@
       card.target = "_blank";
       card.className = "project-card block bg-gray-50 p-4 rounded-lg shadow hover:shadow-md flex flex-col";
       card.innerHTML = `
+        <img src="${project.image}" alt="${project.name} screenshot" class="project-image" onerror="this.src='https://via.placeholder.com/300x200';">
         <div class="flex items-center">
           <i class="fas ${project.icon} project-icon"></i>
-          <span class="text-lg font-medium text-gray-700">${project.name}</span>
-        </div>
-        <p class="project-description">${project.description}</p>
+          <span class="text-lg font-medium text-gray tiver
       `;
       return card;
     }
