@@ -72,16 +72,22 @@
         <img src="${project.image}" alt="${project.name} screenshot" class="project-image" onerror="this.src='https://via.placeholder.com/300x200';">
         <div class="flex items-center">
           <i class="fas ${project.icon} project-icon"></i>
-          <span class="text-lg font-medium text-gray tiver
+          <span class="text-lg font-medium text-gray-700">${project.name}</span>
+        </div>
+        <p class="project-description">${project.description}</p>
       `;
       return card;
     }
 
     // Cargar los proyectos en la página
-    const projectList = document.getElementById("project-list");
-    projects.forEach(project => {
-      projectList.appendChild(createProjectCard(project));
-    });
+    try {
+      const projectList = document.getElementById("project-list");
+      projects.forEach(project => {
+        projectList.appendChild(createProjectCard(project));
+      });
+    } catch (error) {
+      console.error("Error al cargar los proyectos:", error);
+    }
   </script>
 </body>
 </html>
