@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mis Proyectos</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .favicon {
+      width: 24px;
+      height: 24px;
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+    .project-card {
+      transition: transform 0.2s;
+    }
+    .project-card:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col items-center justify-center p-4">
+  <div class="max-w-3xl w-full bg-white shadow-lg rounded-lg p-6">
+    <h1 class="text-3xl font-bold text-center text-gray-800 mb-6">Mis Proyectos</h1>
+    <div id="project-list" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <!-- Los proyectos se cargarán aquí dinámicamente -->
+    </div>
+  </div>
+
+  <script>
+    // Lista de proyectos (puedes añadir más aquí)
+    const projects = [
+      {
+        name: "Chat",
+        url: "https://cristianloa.github.io/chat/",
+        favicon: "https://cristianloa.github.io/chat/favicon.ico"
+      }
+      // Añade más proyectos aquí, por ejemplo:
+      // {
+      //   name: "Proyecto 2",
+      //   url: "https://ejemplo.com/proyecto2",
+      //   favicon: "https://ejemplo.com/proyecto2/favicon.ico"
+      // }
+    ];
+
+    // Función para crear una tarjeta de proyecto
+    function createProjectCard(project) {
+      const card = document.createElement("a");
+      card.href = project.url;
+      card.target = "_blank";
+      card.className = "project-card block bg-gray-50 p-4 rounded-lg shadow hover:shadow-md flex items-center";
+      card.innerHTML = `
+        <img src="${project.favicon}" alt="${project.name} favicon" class="favicon" onerror="this.src='https://via.placeholder.com/24';">
+        <span class="text-lg font-medium text-gray-700">${project.name}</span>
+      `;
+      return card;
+    }
+
+    // Cargar los proyectos en la página
+    const projectList = document.getElementById("project-list");
+    projects.forEach(project => {
+      projectList.appendChild(createProjectCard(project));
+    });
+  </script>
+</body>
+</html>
