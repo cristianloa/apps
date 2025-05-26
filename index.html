@@ -25,18 +25,6 @@
       color: #6B7280; /* Gray-500 */
       margin-top: 4px;
     }
-    .project-screenshot {
-      width: 100%;
-      height: 150px; /* Altura fija para uniformidad */
-      object-fit: cover; /* Mantiene proporción y recorta si es necesario */
-      border-radius: 8px;
-      margin-bottom: 8px;
-      transition: filter 0.2s, transform 0.2s;
-    }
-    .project-screenshot:hover {
-      filter: brightness(1.1); /* Aumenta brillo en hover */
-      transform: scale(1.02); /* Ligeramente agrandado en hover */
-    }
   </style>
 </head>
 <body class="bg-gray-100 min-h-screen flex flex-col items-center justify-center p-4">
@@ -54,16 +42,14 @@
         name: "Chat",
         url: "https://cristianloa.github.io/chat/",
         icon: "fa-comment-dots",
-        description: "Una aplicación de chat en tiempo real con interfaz moderna y funcionalidad de mensajería instantánea.",
-        screenshot: "https://cristianloa.github.io/apps/chatme-cristianloa.jpge" // Placeholder
+        description: "Una aplicación de chat en tiempo real con interfaz moderna y funcionalidad de mensajería instantánea."
       }
       // Añade más proyectos aquí, por ejemplo:
       // {
       //   name: "Portafolio",
       //   url: "https://ejemplo.com/portafolio",
       //   icon: "fa-briefcase",
-      //   description: "Un sitio web para mostrar mis proyectos y habilidades como desarrollador.",
-      //   screenshot: "https://via.placeholder.com/300x200?text=Portafolio+Screenshot"
+      //   description: "Un sitio web para mostrar mis proyectos y habilidades como desarrollador."
       // }
     ];
 
@@ -74,7 +60,6 @@
       card.target = "_blank";
       card.className = "project-card block bg-gray-50 p-4 rounded-lg shadow hover:shadow-md flex flex-col";
       card.innerHTML = `
-        <img src="${project.screenshot}" alt="${project.name} screenshot" class="project-screenshot" onerror="this.src='https://via.placeholder.com/300x200?text=Error';">
         <div class="flex items-center">
           <i class="fas ${project.icon} project-icon"></i>
           <span class="text-lg font-medium text-gray-700">${project.name}</span>
