@@ -5,18 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mis Proyectos</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <style>
-    .favicon {
+    .project-icon {
       width: 24px;
       height: 24px;
       margin-right: 8px;
       vertical-align: middle;
+      color: #4B5563; /* Gray-600 para combinar con el texto */
     }
     .project-card {
       transition: transform 0.2s;
     }
     .project-card:hover {
       transform: scale(1.05);
+    }
+    .project-description {
+      font-size: 0.875rem; /* text-sm */
+      color: #6B7280; /* Gray-500 */
+      margin-top: 4px;
     }
   </style>
 </head>
@@ -29,18 +36,20 @@
   </div>
 
   <script>
-    // Lista de proyectos (puedes añadir más aquí)
+    // Lista de proyectos
     const projects = [
       {
         name: "Chat",
         url: "https://cristianloa.github.io/chat/",
-        favicon: "https://cristianloa.github.io/chat/favicon.ico"
+        icon: "fa-comment-dots",
+        description: "Una aplicación de chat en tiempo real con interfaz moderna y funcionalidad de mensajería instantánea."
       }
       // Añade más proyectos aquí, por ejemplo:
       // {
-      //   name: "Proyecto 2",
-      //   url: "https://ejemplo.com/proyecto2",
-      //   favicon: "https://ejemplo.com/proyecto2/favicon.ico"
+      //   name: "Portafolio",
+      //   url: "https://ejemplo.com/portafolio",
+      //   icon: "fa-briefcase",
+      //   description: "Un sitio web para mostrar mis proyectos y habilidades como desarrollador."
       // }
     ];
 
@@ -49,10 +58,13 @@
       const card = document.createElement("a");
       card.href = project.url;
       card.target = "_blank";
-      card.className = "project-card block bg-gray-50 p-4 rounded-lg shadow hover:shadow-md flex items-center";
+      card.className = "project-card block bg-gray-50 p-4 rounded-lg shadow hover:shadow-md flex flex-col";
       card.innerHTML = `
-        <img src="${project.favicon}" alt="${project.name} favicon" class="favicon" onerror="this.src='https://via.placeholder.com/24';">
-        <span class="text-lg font-medium text-gray-700">${project.name}</span>
+        <div class="flex items-center">
+          <i class="fas ${project.icon} project-icon"></i>
+          <span class="text-lg font-medium text-gray-700">${project.name}</span>
+        </div>
+        <p class="project-description">${project.description}</p>
       `;
       return card;
     }
